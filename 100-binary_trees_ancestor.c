@@ -25,7 +25,8 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	return (NULL);
 }
 
-/** binary_tree_is_ancestor - checks if a given node is an ancestor of
+/**
+ * binary_tree_is_ancestor - checks if a given node is an ancestor of
  * another node
  * @ancestor: pointer to the node to check
  * @node: pointer to the node to check against
