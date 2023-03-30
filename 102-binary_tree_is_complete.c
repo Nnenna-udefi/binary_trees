@@ -27,7 +27,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 		if (queue[i]->left)
 		{
 			/* flag indicates there is a missing node in tree */
-			if (size == 1024)
+			if (size == binary_tree_size(tree))
 			{
 				free(queue);
 				return (0);
@@ -37,7 +37,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 
 		if (queue[i]->right)
 		{
-			if (size == 1024)
+			if (size == binary_tree_size(tree))
 			{
 				free(queue);
 				return (0);

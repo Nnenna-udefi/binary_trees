@@ -8,24 +8,40 @@
  */
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	bst_t *newNode;
+	bst_t *curr, *new;
 
-	if (*tree == NULL)
+	if (tree != NULL)
 	{
-		newNode = (bst_t *)malloc(sizeof(bst_t));
-		if (newNode == NULL)
-			return (NULL);
+		curr = *tree;
 
-		newNode->n = value;
-		newNode->left = NULL;
-		newNode->right = NULL;
-		*tree = newNode;
-		return (newNode);
+		if (curr == NULL)
+		{
+			new = binary_tree_node(curr, value);
+			if (new == NULL)
+				return (NULL);
+			return (*tree = new);
+		}
+
+		if (value < curr->n) /* insert in left subtree */
+		{
+			if (curr->left != NULL)
+				return (bst_insert(&curr->left, value));
+
+			new = binary_tree_node(curr, value);
+			if (new == NULL)
+				return (NULL);
+			return (curr->left = new);
+		}
+		if (value > curr->n) /* insert in right subtree */
+		{
+			if (curr->right != NULL)
+				return (bst_insert(&curr->right, value));
+
+			new = binary_tree_node(curr, value);
+			if (new == NULL)
+				return (NULL);
+			return (curr->right = new);
+		}
 	}
-	else if (value < (*tree)->n)
-		return (bst_insert(&((*tree)->left), value));
-	else if (value > (*tree)->n)
-		return (bst_insert(&((*tree)->right), value));
-	else
-		return (NULL);
+	return (NULL);
 }
