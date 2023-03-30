@@ -15,7 +15,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 		newNode = (bst_t *)malloc(sizeof(bst_t));
 		if (newNode == NULL)
 			return (NULL);
-		
+
 		newNode->n = value;
 		newNode->left = NULL;
 		newNode->right = NULL;
@@ -23,9 +23,9 @@ bst_t *bst_insert(bst_t **tree, int value)
 		return (newNode);
 	}
 	else if (value < (*tree)->n)
-		return bst_insert(&((*tree)->left), value);
+		return (bst_insert(&((*tree)->left), value));
 	else if (value > (*tree)->n)
-		return bst_insert(&((*tree)->right), value);
+		return (bst_insert(&((*tree)->right), value));
 	else
 		return (NULL);
 }
