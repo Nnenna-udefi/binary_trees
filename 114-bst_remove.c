@@ -37,7 +37,7 @@ bst_t *bst_remove_node(bst_t *node, int value)
 	bst_t *temp;
 
 	if (node == NULL)
-		return (NULL);
+		return (node);
 	else if (value < node->n)
 		node->left = bst_remove_node(node->left, value);
 	else if (value > node->n)
